@@ -1,392 +1,428 @@
 /*
-let js="amazing";
-if(js === "amazing") alert("JavaScript is Fun!");
-console.log(40+8+23-10);
+'use strect';//to highlight my error in console terminal
 
-let myFirstName;
-myFirstName="Tazkir"
-console.log(myFirstName);
+let hasDriversLicence = false;
+const passTest = true;
 
-let PI=3.1416;
-console.log(PI);
+if(passTest) hasDriversLicence = true;
+if (hasDriversLicence) console.log(`I can drive :D`);
 
-let myFirstJob="Programmer"
-console.log(myFirstJob);
+const interface = 'Audio';//this interface key js own property
+const private = 534;//this private key is js own property
 
-//data - types
+// functions
 
-let javaScriptIsFun = true;
-console.log(javaScriptIsFun);
+function logger(){
+    console.log(`My name is Tazkir`);
+}
 
-console.log(typeof true);
-console.log(typeof javaScriptIsFun);
-console.log(typeof 23);
-console.log(typeof 'Jonas');
-// let key define only one time
-javaScriptIsFun='yes';
+//calling / running / invoking function
+logger();
+logger();
 
-console.log(typeof javaScriptIsFun);
+function fruitProcessor(apples, oranges){
+    console.log(apples, oranges);
+    const juice = `Juice with ${apples} apples and ${oranges} oranges.`;
+    return juice;
+}
 
-// undefine data type
+fruitProcessor(5, 0);
+const  appleJuice = fruitProcessor(5, 0);
+console.log(appleJuice);
 
-let year;
-console.log(year);
-console.log(typeof year);
+const orangeJuice = fruitProcessor(2, 4);
+console.log(orangeJuice);
 
-year = 1991;
-console.log(typeof year);
-//bug 
-console.groupCollapsed(typeof null);
+Number = ('23');// this is build in function
 
-//let,cont and var
-let age=30;
-age = 35;
 
-//const
-const birthYear = 2001;
-// below syntex is not possible
-birthYear = 2003;
-const job;
-//var,but we don't use is,coz it's very older
-var job = 'programmer';
-job = 'teacher';
-// without declaring any type
-lastName = 'Hossain';
-console.log(lastName);
+//Function Declarations vs Expressions
 
-// Basic operator
-const ageRahim = 2037 - 1930;
-const agekarim = 2037 - 1956;
-console.log(ageRahim, agekarim);
+// Functions declaration
+function calcAge1(birthYear)
+{
+    return 2024 - birthYear;
+}
+const age1 = calcAge1(2001);
+// Function expression
+const calcAge2 = function(birthYear){
+    return 2024 - birthYear;
+}
+const age2 = calcAge2(2001);
+console.log(age1, age2);
 
-const now = 2024;
-const ageSakib = now - 2002;
-const ageAmir = now - 2000;
-console.log(ageSakib, ageAmir);
+// Arrow functions
+
+const calcAge3 = birthYeah => 2037 - birthYeah;
+const age3 = calcAge3(1991);
+console.log(age3);
+
+const yearsUntilRetirement = (birthYeah, firstName) => {
+  const age = 2037 - birthYeah;
+  const retirement = 65 - age;
+  // return retirement;
+  return `${firstName} retires in ${retirement} years`;
+}
+
+console.log(yearsUntilRetirement(1991, 'Jonas')); console.log(yearsUntilRetirement(1980, 'Bob'));
+
+// Functions Calling Other Functions
+function cutFruitPieces(fruit){
+    return fruit * 3;
+}
+function fruitProcessor(apples, oranges){
+    const applePieces = cutFruitPieces(apples);
+    const orangePieces = cutFruitPieces(oranges);
+
+    const juice =`juice with ${applePieces} piece of apple and ${orangePieces} pieces of orange.`;
+    return juice;
+}
+
+console.log(fruitProcessor(2,3));
+
+//Reviewing Functions
+const calcAge = function(birthYear){
+   return 2037 - birthYear;
+}
+const yearsUntilRetirement = function (birthYear, firstName){
+    const age = calcAge(birthYear);
+    const retirement = 65 - age;
+    return retirement;
+}
+console.log(yearsUntilRetirement(1991, 'Tazkir'));
+
+//Reviewing Functions including if else statement
+const calcAge = function(birthYear){
+    return 2037 - birthYear;
+ }
+ const yearsUntilRetirement = function (birthYear, firstName){
+     const age = calcAge(birthYear);
+     const retirement = 65 - age;
+
+     if(retirement > 0){
+        console.log(`${firstName} retires in ${retirement} years`);
+        return retirement;
+     }
+     else{
+        console.log(`${firstName} has already retired`);
+        return -1;
+     }
+     
+ }
+ console.log(yearsUntilRetirement(1991, 'Tazkir'));
  
-console.log(ageAmir * 2, ageRahim / 10, 2 ** 3);
-
-const firstName = 'Tazkir';
-const lastName = 'Hossain';
-console.log (firstName + ' ' + lastName);
-
-//assingnment operator
-let x = 10 + 5;//15
-x += 10;//x = x + 10 = 25
-x *= 4;//x = x * 4 = 100
-x ++;//x = x + 1 = 101
-x --;
-console.log(x);
-
-// Comparison operator
-console.log(ageAmir > ageSakib);//true//< ,>, <=,>=,!=
-console.log(ageAmir >= 18);//true
-
-const isFullAge = agekarim >= 18;
-console.log(now - 2002 > now - 2000);
-
-//Operator Precedence
-let z,y;
-z = y = 25 - 10 - 5;
-console.log(z,y);
-
-const averageAge = (ageAmir + ageSakib) / 2;
-console.log(ageRahim, agekarim, averageAge);
-
-//coding Challenge #1
-const markMass = 78;
-const markHeight = 1.69;
-const jhonMass = 92;
-const jhonHeight = 1.95;
-
-const markBmi = markMass / markHeight ** 2 ;
-const jhonBmi = jhonMass / ( jhonHeight * jhonHeight );
-const compareBmi = markBmi > jhonBmi;
-console.log(markBmi, jhonBmi, compareBmi);
-
-//Strings and Template Literals
-const firstName = 'Tazkir';
-const work = 'student';
-const birthYear = 2001;
-const year = 2024;
-
-const tazkir = "I'm " + firstName + ', a ' + (year - birthYear) + 'years old ' + work + '!';
-console.log(tazkir);
-
-const tazkirNew = `I'm ${firstName}, a ${year - birthYear} year old ${work}!`;
-console.log(tazkirNew);
-
-console.log('String with \n\
-multiple \n\
-lines');
-
-console.log(`String with 
-multiple 
-lines`);
-
-
-//Taking Decisions if else Statements
-
-const age =15;
-if(age >= 18){
-  console.log('Anisha can start driving license')
-}
-
-else{
-    const yearsleft = 18 - age;
-    console.log(`Anisha is too young. Wait another ${yearsleft} years`);
-
-}
-
-const birthYear = 1998;
-
-let century;
-if(birthYear <= 2000 ){
-    century = 20;
-}
-else{century = 21;}
-console.log(century);
-
-//coding Challenge #2
-const markMass = 78;
-const markHeight = 1.69;
-const jhonMass = 92;
-const jhonHeight = 1.95;
-
-const markBmi = markMass / markHeight ** 2 ;
-const jhonBmi = jhonMass / ( jhonHeight * jhonHeight );
-const compareBmi = markBmi > jhonBmi;
-console.log(markBmi, jhonBmi, compareBmi);
-if(markBmi > jhonBmi){
-    console.log(`markBmi ${markBmi} is higher than jhonBmi ${jhonBmi}`)
-}
-else{ console.log(`jhonBmi ${jhonBmi} is higher than markBmi ${markBmi}`)}
-
-
-// Type Conversion and Coercion
-
-const inputYear = '1991';
-console.log(inputYear + 18);
-console.log(Number(inputYear));
-console.log(Number(inputYear) + 18);
-
-console.log(Number('Tazzkir'));//ans will ne NaN,it's mean undefine number & it is typecasting
-console.log(String(23));
-
-// type coercion
-console.log('I am ' + 23 + 'years old');//23 automitacally coverting a string by using + sine
-console.log('23' - '10' - '3');// ans 10,coz - sine convarted automitacally string to number
-console.log('23' + '10' + '3');// ans 36
-console.log('23' * '2');// ans 46 converted to number
-console.log('23' / '2');// ans 11.5 converted to number
-
-let n = '1' + 1;
-n = n - 1;
-console.log(n);
-// 5 falsy values: 0, '', undefined, null, NaN
-console.log(Boolean(0));
-console.log(Boolean(undefined));
-console.log(Boolean('Tazkir'));
-console.log(Boolean({}));
-console.log(Boolean(''));
-
-const money = 100;
-if(money){
-    console.log(`Don't spend it all`);
-}
-else{console.log(`You should get a job!`);}
-
-let height = 0;
-if (height){
-    console.log(`YAY! Height is defined`);
-}
-else{
-    console.log(`Height is Undefined`)
-}
-
-
-// Equality operators == vs ===
-
-const age = '18';
-if (age === 18)// here this === sine converting no type coersion & and strict equality.good practice is using === this sine always
-    {console.log(`You just became an adult`);}
-if (age == 18)//here this == sine converting to type coersion & and loose equality.good practice is not using == this sine always
-    {console.log(`You don't become a adult`);}
-
-const favourite = Number(prompt(`What's your favourite number ?`));
-
-if(favourite === 23)
-    console.log(`'Cool! 23 is a amazing number`);
-else if(favourite === 7){
-    console.log('7 is a cool number');
-}
-else if(favourite === 9){
-    console.log("9 is also a cool number");
-}
-else{
-    console.log(`Number is not 23 or 7 or 9`);
-}
-
-if(favourite !== 23){
-    console.log(`Why not 23`);
-}
-
-
-const hasDriverLicence = true;
-const hasGoodVision = true;
-
-console.log(hasDriverLicence && hasGoodVision);
-console.log(hasDriverLicence || hasGoodVision);
-
-/*if(hasDriverLicence && hasGoodVision){
-    console.log(`Anisha is able to drive!`);
-}
-else{
-    console.log(`Some one else should deive`);
-}
-
-const isTired = false;
-console.log(hasDriverLicence && hasGoodVision && isTired);
-
-if(hasDriverLicence && hasGoodVision && !isTired){
-    console.log(`Anisha is able to drive`);
-}
-else{
-    console.log(`Someone else should drive....`);
-}
-
-// challenge 3
-
-// const dolphins = (96 + 108 + 89)/3;
-// const koalas = (88 + 91 + 110)/3;
-
-// console.log(dolphins, koalas);
-// if(dolphins > koalas){
-//     console.log(`winner is dolphins`);
-// }
-// else if(dolphins < koalas){
-//     console.log(`Winner is koalas`);
-// }
-// else if(dolphins === koalas){
-//     console.log(`Both win the trophy!`);
-// }
-
-
-//Bonous 1
-
-const dolphins = (97 + 112 + 101)/3;
-const koalas = (109 + 95 + 123)/3;
-
-console.log(dolphins, koalas);
-if(dolphins > koalas && dolphins >=100){
-     console.log(`winner is dolphins`);
-}
-else if(dolphins < koalas && >=100){
-    console.log(`Winner is koalas`);
-}
-else if(dolphins === koalas && dolphins >=100 && koalas <=100){
-     console.log(`Both win the trophy!`);
-}
-else{
-    console.log(`No one will be win`)
-}
-
-
-// The switch statement
-const day = 'monday';
-
-switch(day){
-    case 'monday':// day === 'monday
-     console.log(`Yes! today is monday`);
-     console.log(`Have done your homework?`);
-     break;
-    case 'tuesday':
-        console.log(`Today is tuesday`);
-        break;
-    case 'wednesday':
-    case 'thusday':
-        console.log(`Today is your off day`);
-        break;
-    case 'friday':
-        console.log(`Today is government holiday`);
-        break;
-    case 'saturday':
-        console.log(`Today is bank holiday`);
-        break;
-    case 'sunday':
-        console.log(`Today is sunday`);
-        break;
-    default:
-        console.log(`Not a valid day`);
+ // Coding Channenge #1
+ function calcAverage (a ,b, c){
+    const avg = (a + b + c)/3;
+    return avg;
     
-}
+ }
+ let scoreDolphins = calcAverage(44,23,71);
+ let scoreKoalas = calcAverage(65, 54, 49)
+ console.log(scoreDolphins, scoreKoalas);
 
-// if we are here using if else statement,,
-if(day === 'monday'){
-    console.log(`Yes! today is monday`);
-    console.log(`Have done your homework?`);
+ function checkWinner (dolphinsAvg, koalasAvg){
+   if(dolphinsAvg >= 2 * koalasAvg){console.log(`Dolphins win ${dolphinsAvg} vs ${koalasAvg}`);
+
+   }
+   else if(koalasAvg >= 2 * dolphinsAvg){
+    console.log(`Koalas win ${koalasAvg} vs ${dolphinsAvg}`);
+   }
+   else{
+    console.log(`No team wins...`)
+   }
+ }
+
+ checkWinner(scoreDolphins, scoreKoalas);
+ checkWinner(546, 234);
+  scoreDolphins = calcAverage(85,54,41);
+  scoreKoalas = calcAverage(23, 34, 27);
+  
+  checkWinner(scoreDolphins, scoreKoalas);
+ 
+ //Introduction to Array
+  const friend1 = 'Tazkir';
+  const friend2 = 'Sakib';
+  const friend3 = 'Amir';
+
+  const friends = ['Sakib', 'Amir', 'labu'];
+  console.log(friends);
+
+  const years = new Array(1991, 2000, 2020, 2030);
+
+  console.log(friends[0]);
+  console.log(friends[2]);
+
+  console.log(friends.length);
+  console.log(friends[friends.length - 1]);
+
+  friends[2] = 'Ibrahim';//using array value change
+  console.log(friends);
+  // friends = ['Khalil', 'Mehedi']; this is not possible
+
+  const firstName = 'Tazkir';
+  const Tanveer = [firstName, 'Dhaka', 2024-2001, 'USA', friends];
+  console.log(Tanveer);
+  console.log(Tanveer.length);
+
+  // exercise
+  function calcAge (birthYear){
+    return 2037 - birthYear;
+  }
+  const year = [1990, 1967, 2002, 2010, 2018];
+  const age1 = calcAge(year[0]);
+  const age2 = calcAge(year[1]);
+  const age3 = calcAge(year[year.length-1]);
+  console.log(age1, age2, age3);
+
+  const ages = [calcAge(year[0]), calcAge(year[1]), calcAge(year[year.length - 1])];
+  console.log(ages);
+
+// Basic Array Operations
+
+const friends = ['Asif', 'Saiful', 'Noor'];
+// add elements
+friends.push('Mohib');// Asif,Saiful,Noor,Mohib
+console.log(friends);
+const newLenght = friends.push('Mohib');// 4
+console.log(newLenght);// o/p,,4
+
+friends.unshift('Amir');//Asif,Saiful,Noor,Mohib,Amir
+console.log(friends)
+// remove elements
+friends.pop();//last // Asif, Saiful, Noor,Mohib
+const popped = friends.pop();// Asif, Saiful, Noor
+console.log(popped);// Mohib return
+console.log(friends);// Asif, Saiful, Noor
+
+friends.shift(); // first
+console.log(friends);// Asif, Saiful
+
+console.log(friends.indexOf('Asif'));// 1
+console.log(friends.indexOf('Shafayet'));// -1
+
+friends.push(23);
+console.log(friends.includes('Asif'));// true
+console.log(friends.includes('Shafayet'));// false
+console.log(friends.includes('23'));// strict equality it does not do type coercion
+
+// Coding Challenge #2
+function calcTip(bill){
+   if(bill >=50 && bill <=300){
+     let tip= bill * 0.15;
+     return tip;
+   }
+   else{
+     let tip = bill * 0.20;
+     return tip;
+   }
 }
-else if(day === 'tuesday'){
-    console.log(`Today is tuesday`);
-}
-else if(day === 'wednesday' || day === 'thusday'){
-    console.log(`Today is your off day`);
-}
-else if(day === 'friday'){
-    console.log(`Today is government holiday`);
-}
-else if(day === 'saturday'){
-    console.log(`Today is bank holiday`);
-}
-else if(day === 'sunday'){
-    console.log(`Today is sunday`);
+   const bills = [125,555,44];
+   const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
+   const totals = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
+   console.log(bills, tips, totals);
+
+//Introduction to object
+const tazkirArray =[
+  'Tanveer',
+  'Hossain',
+  2037 - 1991,
+  'teacher',
+  ['Mohib','Noor','Asif']
+
+];
+
+const Tazkir={
+  firstName: 'Tazkir',
+  lastName: 'Hossain',
+  age: 2037 - 1991,
+  job:'teacher',
+  friends:['Mohib','Noor','Asif']
+};
+ 
+
+// Dot vs Bracket Notation
+const tazkir={
+  firstName: 'Tazkir',
+  lastName: 'Hossain',
+  age: 2037 - 1991,
+  job:'teacher',
+  friends:['Mohib','Noor','Asif']
+};
+
+console.log(tazkir);
+console.log(tazkir.firstName);
+console.log(tazkir['lastName']);
+
+const nameKey = 'Name';
+console.log(tazkir['first' + nameKey]);// 1st of all String concate than print value from class tazkir to object tazkir.firstName.
+console.log(tazkir['last' + nameKey]);// same upper
+//console.log(tazkir.'last' + nameKey);// It does not work.
+const interestedIn = prompt('What do you want to know about Jonas? Choose between firstName, lastName, age, job, and friends');
+console.log(tazkir.interestedIn);//but it print undefined
+//console.log(tazkir[interestedIn]); this is correct
+
+if(tazkir[interestedIn]){
+  console.log(tazkir[interestedIn]);
 }
 else{
-    console.log(`This is not a valid day`)
+  console.log(`Wrong answer,try it again`)
 }
+tazkir.location = 'Dhaka';//adding object
+tazkir['twitter'] = '@tazkir';//adding object
+console.log(tazkir);
+// challenge
+// "Tazkir has 3 friends, and his best friend is called Michael"
+console.log(`${tazkir.firstName} has ${tazkir.friends.length} friends, and his best friend is called ${tazkir.friends[0]}`);
 
+// Object Methods
+const tazkir={
+  firstName: 'Tazkir',
+  lastName: 'Hossain',
+  age: 2037 - 1991,
+  job:'teacher',
+  birthYear: 1991,
+  friends:['Mohib','Noor','Asif'],
+  hasDriversLicense: true,
 
-//statement and expression
-3+4 // this is a expression coz,it gives value
-if(23>10){
-    const str = `23 is bigger`// this is a statement,coz it gives not any value
-}
-const me = 'Tazkir';
-console.log(`I'am ${2024 - 2001} years old ${me}`);//we can use expression this situation but not use 
+  // calcAge: function(birthYear){
+  //   return 2037 - birthYear;
+  // }
+  
+  // calcAge: function(){
+  //   this.tazkir;
+  //   return 2037 - this.birthYear;
+  // }
 
+  calcAge:function(){
+    this.age = 2037 - this.birthYear;
+    return this.age;
+  },
+  
+  getSummary: function(){
+     return `${this.tazkir} is a ${this.calcAge()}-year old ${this.job}, and he has a ${this.hasDriversLicense ? 'a' : 'no'} driver's License.`
+  }
+};
+//console.log(tazkir.calcAge(1991));
+//console.log(tazkir['calcAge'](1991));
+//console.log(tazkir.calcAge());
+console.log(tazkir.age);
+console.log(tazkir.getSummary);
 
-//The Conditional (Ternany) Operator
-const age = 23;
-age >=18 ? console.log(`You are adult`):
-console.log(`You are not adult`);
+// Coding Challenge #3
+const markMiller ={
+  fullName:"Jhon's",
+  mass:78,
+  height:1.69,
 
-const situation = age >= 18 ? 'adult' : 'not adult';
-console.log(situation);
+  calcBmi: function(){
+    return this.bmi = this.mass/(this.height ** 2);
+  }
+};
 
-let drink;
-if(age >= 18){
-    drink = 'tea';
+const jhonSmith ={
+  fullName:"Mark's",
+  mass: 92,
+  height:1.95,
+
+  calcBmi: function(){
+    return this.bmi = this.mass/(this.height ** 2);
+  }
+};
+markMiller.calcBmi();
+jhonSmith.calcBmi();
+//console.log(markMiller.calcBmi());
+//console.log(jhonSmith.calcBmi());
+
+if(markMiller.bmi > jhonSmith.bmi){
+   console.log(`${markMiller.fullName} BMI (${markMiller.bmi}) is higher than ${jhonSmith.fullName} (${jhonSmith.bmi})!`);
 }
 else{
-    drink = 'water';
+  console.log(`${jhonSmith.fullName} BMI (${jhonSmith.bmi}) is higher than ${markMiller.fullName} (${markMiller.bmi})!`);
 }
-console.log=(drink);
 
-console.log(`My situation is ${age >= 18 ? 'adult' : 'not adult'}`);
+// for loop
+for(let i=1;i<11;i++){
+  console.log(`Hello Bangladesh ${i}`);
+}
+
+//Looping Arrays, Breaking and Continuing
+const tazkir = [
+  'tazkir',
+  'hossain',
+  2037 - 1991,
+  'teacher',
+  ['mohib','noor','asif']
+];
+
+const type = [];
+
+for(let i = 0; i < tazkir.length; i++){
+  //Reading from tazkir array
+  //console.log(tazkir[i],typeof tazkir[i]);
+
+  // filling type array,right down below two process
+  //type[i] = typeof tazkir[i];
+  type.push(typeof tazkir[i]);
+}
+console.log(type);
+const birthYears = [1991, 2007, 1969, 2020];
+const ages = [];
+
+for(let i = 0; i < birthYears.length; i++){
+  //ages.push(2037 - birthYears[i]);// this one and below one both are correct
+  ages[i] = (2037 - birthYears[i]);
+}
+console.log(ages);
+
+// Continue and break
+console.log('--- Only Strings --');
+for(let i=0;i<tazkir.length;i++){
+  if(typeof tazkir[i] !== 'string') continue;
+
+  console.log(tazkir [i], typeof tazkir[i]);
+}
+
+console.log('--- Break With Number ---');
+for(let i=0;i<tazkir.length;i++)
+{
+  if(typeof tazkir[i] === 'number') break;
+   console.log(tazkir[i], typeof tazkir[i]);
+}
+
+// Looping Backwards and Loops in Loops
+const tazkir = [
+  'tazkir',
+  'hossain',
+  2037 - 1991,
+  'teacher',
+  ['mohib','noor','asif'],
+  true
+];
+
+for(let i=tazkir.length - 1; i >=0; i--){
+  console.log(i,tazkir[i]);
+}
+
+for(let i =1;i<4;i++){
+  console.log(`------- Starting Exercise ${i}`);
+
+  for(let rep =1;rep<6;rep++){
+    console.log(`Lifiting Weight Repetition ${rep}`);
+  }
+} 
 */
+// The While Loop
 
-// Coding Channenge #4
-
-const bill = 275;
-let tip;
-let totalBill;
-if(bill >= 50 && bill <= 300){
-    tip = bill * (15/100);
-    totalBill = bill + tip;
-    console.log(`Your bill is ${totalBill}`);
+let i = 1;
+while(i<=10){
+  console.log(`Hello Bangladesh ${i}`);
+  i++;
 }
-else{
-    tip = bill * (20/100);
-    totalBill = bill + tip;
-    console.log(`Your bill is ${totalBill}`);
+
+let dice = Math.trunc(Math.random() * 6) + 1;
+while(dice !== 6){
+  console.log(`You rolled a ${dice}`);
+  dice = Math.trunc(Math.random()*6)+1;
+  if (dice === 6) console.log('Loop is about to end');
 }
